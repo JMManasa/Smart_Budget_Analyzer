@@ -97,4 +97,8 @@ if __name__ == '__main__':
     if not os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'w') as f:
             json.dump([], f)
-    app.run(debug=True)
+
+    # get Render-assigned port and run on all interfaces
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
