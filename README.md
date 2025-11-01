@@ -65,6 +65,7 @@ Smart_Budget_Analyzer/
 4. Open your browser and visit:
    ```
    http://127.0.0.1:5000/
+   
    ```
 
 ---
@@ -72,6 +73,7 @@ Smart_Budget_Analyzer/
 ## 🌐 Deployment
 
 Deployed using [Render](https://render.com) — free and easy Flask hosting.
+https://smart-budget-analyzer.onrender.com
 
 ---
 
