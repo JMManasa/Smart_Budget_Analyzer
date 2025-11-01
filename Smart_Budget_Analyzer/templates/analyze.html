@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Analysis - Smart Budget Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Expense Analysis</h1>
+
+    {% if message %}
+      <p>{{ message }}</p>
+    {% else %}
+      <p><strong>Total Spent:</strong> ₹{{ total }}</p>
+      <p><strong>Overall Average per Entry:</strong> ₹{{ overall_avg }}</p>
+
+      <h2>Per-category Summary</h2>
+      <table>
+        <tr><th>Category</th><th>Total (₹)</th><th>Count</th><th>Average (₹)</th><th>Percent%</th></tr>
+        {% for c in per_category %}
+        <tr>
+          <td>{{ c.category }}</td>
+          <td>{{ "%.2f"|format(c.amount) }}</td>
+          <td>{{ c.count }}</td>
+          <td>{{ "%.2f"|format(c.avg) }}</td>
+          <td>{{ "%.2f"|format(c.percent) }}%</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <h2>Suggestions</h2>
+      <ul>
+        {% for s in suggestions %}
+        <li>{{ s }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <a href="/" class="btn">⬅ Back</a>
+  </div>
+</body>
+</html>
