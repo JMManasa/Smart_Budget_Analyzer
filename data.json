@@ -1,0 +1,22 @@
+[
+    {
+        "name": "shopping",
+        "category": "cloths",
+        "amount": 2000.0
+    },
+    {
+        "name": "hospital bill",
+        "category": "health",
+        "amount": 3000.0
+    },
+    {
+        "name": "vegetables",
+        "category": "food",
+        "amount": 300.0
+    },
+    {
+        "name": "medicine",
+        "category": "health",
+        "amount": 500.0
+    }
+]

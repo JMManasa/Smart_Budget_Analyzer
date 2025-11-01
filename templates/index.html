@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Budget Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Smart Budget Analyzer</h1>
+
+    <form action="/add" method="POST" class="form">
+      <input type="text" name="name" placeholder="Expense name (e.g., Groceries)" required>
+      <input type="text" name="category" placeholder="Category (e.g., Food)" required>
+      <input type="number" name="amount" step="0.01" placeholder="Amount (₹)" required>
+      <button type="submit">Add Expense</button>
+    </form>
+
+    <div class="expenses">
+      <h2>All Expenses</h2>
+      {% if expenses %}
+      <table>
+        <tr><th>Name</th><th>Category</th><th>Amount (₹)</th></tr>
+        {% for e in expenses %}
+        <tr>
+          <td>{{ e.name }}</td>
+          <td>{{ e.category }}</td>
+          <td>{{ "%.2f"|format(e.amount) }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>No expenses yet. Add some above.</p>
+      {% endif %}
+    </div>
+
+    <div class="links">
+      <a href="/analyze" class="btn">Analyze Expenses</a>
+    </div>
+  </div>
+</body>
+</html>
